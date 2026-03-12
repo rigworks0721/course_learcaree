@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>漢方アドバイザー資格取得講座 | 巡る知恵は、私を整え、誰かを癒す。</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kampo-green': '#2D4B3E', 
+                        'kampo-beige': '#F5F2ED', 
+                        'kampo-ink': '#1A1A1A',   
+                        'kampo-gold': '#A68A56',  
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        'widest-jp': '0.15em',
+                        'looser': '0.1em',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-kampo-beige text-kampo-ink font-sans leading-relaxed tracking-looser">
+
+    <header class="relative h-[75vh] min-h-[560px] flex flex-col justify-center items-center overflow-hidden bg-kampo-green text-white">
+        <div class="absolute inset-0 z-0">
+            <img alt="漢方茶を淹れる女性" class="w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80"/>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-kampo-green"></div>
+        </div>
+        <div class="relative z-10 px-6 text-center">
+            <div class="mb-4 flex justify-center">
+                <span class="border border-white/60 px-4 py-1.5 text-xs tracking-widest font-serif text-shadow-sm">漢方アドバイザー資格取得講座</span>
+            </div>
+            <h1 class="font-serif text-3xl md:text-4xl mb-4 leading-[1.6] tracking-widest text-shadow-md">
+                巡る知恵は、<br/>
+                私を整え、誰かを癒す。
+            </h1>
+            <p class="text-sm md:text-base mb-8 leading-[1.8] opacity-95 font-serif text-shadow-sm tracking-widest-jp">
+                自分の心身を読み解き、<br/>
+                大切な人の「お守り」になれる<br/>
+                一生モノの知恵を。
+            </p>
+            <div class="flex flex-col gap-3 w-full max-w-[280px] mx-auto">
+                <a class="bg-kampo-gold hover:bg-opacity-90 text-white font-bold py-4 rounded-sm shadow-xl text-center tracking-widest text-sm transition-all" href="#form">
+                    無料説明会に申し込む
+                </a>
+                <a class="bg-white/95 text-kampo-green font-bold py-4 rounded-sm shadow-xl text-center tracking-widest text-sm transition-all" href="#form">
+                    資料を無料でダウンロード
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-md mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-kampo-gold font-serif block mb-1 tracking-[0.3em] text-xs uppercase">— Benefits —</span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold text-kampo-green leading-snug tracking-widest-jp">自らの治癒力を高める<br/>「本質」のケア</h2>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-kampo-beige rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-kampo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold mb-1 tracking-wider">自分と対話する技術</h3>
+                        <p class="text-[13px] text-gray-600 leading-relaxed">日々の僅かなサインから「気・血・水」の状態を客観的に把握する習慣が身につきます。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-kampo-beige rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-kampo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold mb-1 tracking-wider">オーダーメイドの優しさ</h3>
+                        <p class="text-[13px] text-gray-600 leading-relaxed">体質や状態に合わせた最適な処方を。一人ひとりに寄り添う漢方の知恵を提案できます。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-kampo-beige rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-kampo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold mb-1 tracking-wider">未病を防ぐ賢い選択</h3>
+                        <p class="text-[13px] text-gray-600 leading-relaxed">生活習慣から見直し、病気になる前の「未病」を改善。一生続く健康維持の強力な武器となります。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-kampo-beige px-6">
+        <div class="max-w-md mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-kampo-gold font-serif block mb-1 tracking-[0.3em] text-xs uppercase">— Curriculum —</span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold text-kampo-green tracking-widest-jp">学習できる内容例</h2>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded shadow-sm border-t-4 border-kampo-green">
+                    <div class="text-kampo-gold text-[10px] font-bold mb-1 tracking-widest uppercase">CURRICULUM 01</div>
+                    <h3 class="text-lg font-bold mb-3 font-serif leading-snug tracking-wider">【Body Logic】<br/>心と体を読み解く「翻訳力」</h3>
+                    <p class="text-[13px] mb-4 text-gray-600 leading-relaxed">五行（木火土金水）や「気・血・水」のバランスから、不調の根本原因を特定する基礎理論を学びます。</p>
+                    <div class="relative flex justify-center items-center h-40 bg-kampo-beige/50 rounded-sm overflow-hidden">
+                        <img alt="五行理論のイメージ図" class="object-contain w-full h-full p-4" src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=400&q=80"/>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="curriculum01/" class="inline-block w-full border border-kampo-green text-kampo-green py-3 text-xs tracking-widest font-bold hover:bg-kampo-green hover:text-white transition-colors">詳細を見る</a>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded shadow-sm border-t-4 border-kampo-green">
+                    <div class="text-kampo-gold text-[10px] font-bold mb-1 tracking-widest uppercase">CURRICULUM 02</div>
+                    <h3 class="text-lg font-bold mb-3 font-serif leading-snug tracking-wider">【Practical Skill】<br/>暮らしを整える「実践・提案力」</h3>
+                    <p class="text-[13px] mb-4 text-gray-600 leading-relaxed">正しい煎じ方から空腹時の服用法、食生活を含めた生活習慣の改善提案までを具体的に習得します。</p>
+                    <img alt="和漢生薬のイメージ" class="w-full h-40 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500" src="https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=400&q=80"/>
+                    <div class="mt-6 text-center">
+                        <a href="curriculum02/" class="inline-block w-full border border-kampo-green text-kampo-green py-3 text-xs tracking-widest font-bold hover:bg-kampo-green hover:text-white transition-colors">詳細を見る</a>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded shadow-sm border-t-4 border-kampo-green">
+                    <div class="text-kampo-gold text-[10px] font-bold mb-1 tracking-widest uppercase">CURRICULUM 03</div>
+                    <h3 class="text-lg font-bold mb-3 font-serif leading-snug tracking-wider">【Solution】<br/>20の具体例で応える「解決力」</h3>
+                    <p class="text-[13px] mb-4 text-gray-600 leading-relaxed">不眠、冷え、更年期の悩みなど。現代人が抱えやすい症例に基づき、改善へ導くフローを身につけます。</p>
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <div class="text-[10px] bg-kampo-beige p-2 text-center rounded-sm tracking-tighter">睡眠の悩み</div>
+                        <div class="text-[10px] bg-kampo-beige p-2 text-center rounded-sm tracking-tighter">更年期の不調</div>
+                        <div class="text-[10px] bg-kampo-beige p-2 text-center rounded-sm tracking-tighter">冷え性の改善</div>
+                        <div class="text-[10px] bg-kampo-beige p-2 text-center rounded-sm tracking-tighter">胃腸の疲れ</div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="curriculum03/" class="inline-block w-full border border-kampo-green text-kampo-green py-3 text-xs tracking-widest font-bold hover:bg-kampo-green hover:text-white transition-colors">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-kampo-green text-white overflow-hidden">
+        <div class="max-w-md mx-auto text-center">
+            <h2 class="text-xl font-serif mb-10 tracking-[0.2em]">五行が導く、新しい自分</h2>
+            <div class="relative w-56 h-56 mx-auto mb-12">
+                <div class="absolute inset-0 flex items-center justify-center border border-white/20 rounded-full">
+                    <div class="text-[11px] font-serif leading-loose opacity-80 tracking-widest-jp">
+                        木 ・ 火 ・ 土 ・ 金 ・ 水<br/>
+                        全ては巡り、バランスを保つ
+                    </div>
+                </div>
+                <div class="absolute inset-0 border-t border-kampo-gold/40 rounded-full animate-spin-custom"></div>
+            </div>
+            <div class="text-left space-y-6">
+                <div class="border-l-2 border-kampo-gold pl-5">
+                    <h3 class="font-serif text-base mb-1 tracking-wider">漢方アドバイザーとしての説得力</h3>
+                    <p class="text-[13px] leading-relaxed opacity-80">自覚症状や経過を重要視し、変化に合わせて漢方薬を選べる専門性を養成します。</p>
+                </div>
+                <div class="border-l-2 border-kampo-gold pl-5">
+                    <h3 class="font-serif text-base mb-1 tracking-wider">受け継がれるプロのモラル</h3>
+                    <p class="text-[13px] leading-relaxed opacity-80">誤治を避ける正しい知識と、副作用に対する注意深さを学びの根幹に据えています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-md mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-kampo-gold font-serif block mb-1 tracking-[0.3em] text-xs uppercase">— After Graduation —</span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold text-kampo-green leading-snug tracking-widest-jp">資格取得後の、広がる可能性</h2>
+            </div>
+            <div class="space-y-12">
+                <div class="group">
+                    <div class="overflow-hidden rounded-sm mb-3">
+                        <img alt="家庭の風景" class="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1511105612320-2e62a04dd044?auto=format&fit=crop&w=400&q=80"/>
+                    </div>
+                    <h3 class="text-base font-bold mb-1.5 flex items-center tracking-wider">
+                        <span class="w-6 h-px bg-kampo-gold mr-3"></span>家庭の健康サポーター
+                    </h3>
+                    <p class="text-[13px] text-gray-600 leading-relaxed">家族の些細な不調に寄り添う。暮らしの中で正しい保存法や服用法を実践する頼れる存在に。</p>
+                </div>
+                <div class="group">
+                    <div class="overflow-hidden rounded-sm mb-3">
+                        <img alt="サロンの風景" class="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=400&q=80"/>
+                    </div>
+                    <h3 class="text-base font-bold mb-1.5 flex items-center tracking-wider">
+                        <span class="w-6 h-px bg-kampo-gold mr-3"></span>美容・健康のプロ
+                    </h3>
+                    <p class="text-[13px] text-gray-600 leading-relaxed">現在のスキルに漢方の視点を掛け合わせる。肌の悩みやストレスへの総合的なアドバイスを提供。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="py-16 px-6 bg-kampo-beige">
+        <div class="max-w-md mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-kampo-gold font-serif block mb-1 tracking-[0.3em] text-xs uppercase">— Roadmap —</span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold text-kampo-green leading-snug tracking-widest-jp">最短3週間の合格ロードマップ</h2>
+                <p class="text-[11px] mt-2 text-gray-500 tracking-wider">忙しいあなたでも大丈夫。認定までの4つのステップ</p>
+            </div>
+
+            <div class="relative">
+                <div class="absolute left-[21px] top-0 bottom-0 w-0.5 bg-kampo-gold/30"></div>
+
+                <div class="space-y-12">
+                    <div class="relative pl-14">
+                        <div class="absolute left-0 top-0 w-11 h-11 bg-kampo-gold text-white rounded-full flex items-center justify-center font-serif font-bold shadow-lg z-10">1</div>
+                        <div>
+                            <span class="text-[10px] font-bold text-kampo-gold tracking-widest uppercase">Step 01</span>
+                            <h3 class="text-base font-bold mb-2 tracking-wider">スマホで簡単お申込み</h3>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">
+                                思い立ったら、その場でスタート。スマホから1分で完了です。最短当日発送するため、やる気があるうちに教材が届きます。
+                                <span class="block mt-1 text-[11px] text-kampo-green font-medium">※「後払い」を選べば、今すぐ始められます。</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-14">
+                        <div class="absolute left-0 top-0 w-11 h-11 bg-kampo-gold text-white rounded-full flex items-center justify-center font-serif font-bold shadow-lg z-10">2</div>
+                        <div>
+                            <span class="text-[10px] font-bold text-kampo-gold tracking-widest uppercase">Step 02</span>
+                            <h3 class="text-base font-bold mb-2 tracking-wider">マイペースに学習</h3>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">
+                                通勤中や家事の合間など、場所も時間も選びません。図解中心のテキストで初心者もスラスラ読めます。LINEでプロの講師に質問し放題なので挫折しません。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-14">
+                        <div class="absolute left-0 top-0 w-11 h-11 bg-kampo-gold text-white rounded-full flex items-center justify-center font-serif font-bold shadow-lg z-10">3</div>
+                        <div>
+                            <span class="text-[10px] font-bold text-kampo-gold tracking-widest uppercase">Step 03</span>
+                            <h3 class="text-base font-bold mb-2 tracking-wider">課題提出＆試験</h3>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">
+                                試験はご自宅で、好きなタイミングで受験可能。365日・無制限のLINE質問サポートがあるから、疑問をその場で解決して着実に知識が身につきます。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-14">
+                        <div class="absolute left-0 top-0 w-11 h-11 bg-kampo-green text-white rounded-full flex items-center justify-center font-serif font-bold shadow-lg z-10">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-kampo-green tracking-widest uppercase">Goal</span>
+                            <h3 class="text-base font-bold mb-2 tracking-wider">資格取得・認定証授与</h3>
+                            <p class="text-[13px] text-gray-600 leading-relaxed mb-4">
+                                最短3週間で有資格者へ。日本技能開発協会（JSDA）の公式認定証を発行します。履歴書への記載や開業時の信頼の証として幅広く活用いただけます。
+                            </p>
+                            <div class="mt-4 rounded-sm overflow-hidden shadow-md border border-kampo-gold/20">
+                                <img src="../images/diploma.jpg" alt="公式認定証（ディプロマ）のイメージ" class="w-full h-auto object-cover object-center max-h-48" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 p-6 border border-kampo-gold/20 rounded-sm bg-white text-center">
+                <div class="flex justify-center mb-4">
+                    <svg class="w-12 h-12 text-kampo-gold opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-1.306 3.57 3.57 0 014.438 0 3.42 3.42 0 001.946 1.306 3.57 3.57 0 013.121 3.121 3.42 3.42 0 001.306 1.946 3.57 3.57 0 010 4.438 3.42 3.42 0 00-1.306 1.946 3.57 3.57 0 01-3.121 3.121 3.42 3.42 0 00-1.946 1.306 3.57 3.57 0 01-4.438 0 3.42 3.42 0 00-1.946-1.306 3.57 3.57 0 01-3.121-3.121 3.42 3.42 0 00-1.306-1.946 3.57 3.57 0 010-4.438 3.42 3.42 0 001.306-1.946 3.57 3.57 0 013.121-3.121z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                </div>
+                <h4 class="text-sm font-bold text-kampo-green mb-2 tracking-widest-jp">公式認定資格の証明</h4>
+                <p class="text-[11px] text-gray-500 leading-relaxed">ラーキャリの漢方アドバイザー資格は、<br>一般社団法人 日本技能開発協会（JSDA）の<br>公式認定を受けています。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-kampo-ink text-white py-14 px-6" id="form">
+        <div class="max-w-md mx-auto text-center">
+            <h2 class="font-serif text-lg mb-8 tracking-[0.2em]">まずは無料で、その一歩を。</h2>
+            <div class="space-y-3 max-w-[300px] mx-auto">
+                <button class="w-full bg-kampo-gold text-white font-bold py-4 rounded-sm flex items-center justify-center gap-2 group shadow-lg text-sm tracking-widest">
+                    <span>無料説明会に申し込む</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+                <button class="w-full border border-white/30 text-white font-bold py-4 rounded-sm text-sm tracking-widest bg-white/5">
+                    資料を無料でダウンロード
+                </button>
+            </div>
+            <div class="mt-12 pt-6 border-t border-white/10">
+                <p class="text-[9px] tracking-widest opacity-50 uppercase">© Kampo Advisor Training Course ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

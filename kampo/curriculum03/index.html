@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>漢方の実践 - 基本03</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'kampo-green': '#2D4B3E',
+            'kampo-beige': '#F5F2ED',
+            'kampo-ink': '#1A1A1A',
+            'kampo-gold': '#A68A56',
+          },
+          fontFamily: {
+            serif: ['"Noto Serif JP"', 'serif'],
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          letterSpacing: {
+            'widest-jp': '0.15em',
+            'looser': '0.1em',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+
+    .case-card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-kampo-beige text-kampo-ink font-sans leading-relaxed tracking-looser">
+
+  <div
+    class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 py-4 border-b border-kampo-green/10 shadow-sm">
+    <div class="flex justify-center items-center">
+      <a href="../"
+        class="flex items-center gap-2 text-kampo-green font-bold text-sm tracking-widest hover:text-kampo-gold transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        トップページへ戻る
+      </a>
+    </div>
+  </div>
+
+  <section class="pt-28 pb-20 px-6 bg-white overflow-hidden" id="page-c">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="text-kampo-gold font-serif block mb-2 tracking-[0.4em] text-sm uppercase">Learning Content C</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-kampo-green leading-tight tracking-widest-jp">
+          20の症例から導き出す<br class="hidden md:block">「最適な処方と解決力」
+        </h2>
+        <div class="w-12 h-px bg-kampo-gold mx-auto mt-6"></div>
+      </div>
+
+      <p class="text-center text-gray-600 mb-20 leading-relaxed max-w-2xl mx-auto">
+        理論を現実に落とし込む、漢方アドバイザーの真骨頂。<br>
+        現代人が抱える具体的な悩みに対し、どの生薬を選び、どう寄り添うべきか。その実践的フローを習得します。
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">01</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">悩みに応える「解決ドリル」</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            不眠、冷え、更年期、ストレス、花粉症 [cite: 784, 818, 925, 970,
+            803]。現代人の20以上の代表的な症例を網羅。なぜ「柴胡」が必要なのか、なぜ「芍薬」が痛みを止めるのか。その処方のロジックを解き明かします [cite: 788, 886, 998]。
+          </p>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="bg-kampo-beige p-3 text-center text-[11px] rounded-sm case-card">更年期障害の多角ケア [cite: 818]</div>
+            <div class="bg-kampo-beige p-3 text-center text-[11px] rounded-sm case-card">不眠を癒す心の整え方 [cite: 784]</div>
+            <div class="bg-kampo-beige p-3 text-center text-[11px] rounded-sm case-card">急な足のつり・痙攣 [cite: 995]</div>
+            <div class="bg-kampo-beige p-3 text-center text-[11px] rounded-sm case-card">現代病「ストレス」 [cite: 925]</div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">02</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">「誤治」を防ぐアドバイザーの責任</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            漢方は万能ではありません。証の見立てを誤る「誤治」を避けるために 。食欲不振やほてり等の副作用のサイン [cite: 699-703]、そして「甘草」の過剰摂取リスクを学び、責任ある助言ができるようになります
+            [cite: 714-716]。
+          </p>
+          <div class="p-5 border-l-2 border-kampo-gold bg-kampo-beige/30">
+            <ul class="text-[11px] space-y-2 text-gray-700 font-bold">
+              <li>・間質性肺炎の兆候を見逃さない [cite: 712]</li>
+              <li>・偽アルドステロン症のリスク管理 [cite: 715]</li>
+              <li>・体質に合わない場合の服用中止判断 [cite: 713]</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">03</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">圧倒的情報量「生薬データベース」</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            藍草から没薬まで、160種類以上の生薬を網羅した巻末資料 。読み方、薬用部位、効能、そして正確な1日あたりの用量 [cite: 1133]。資格取得後も、一生あなたの活動を支える強力な図鑑となります。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-kampo-green/10 text-[9px] rounded-full">阿膠（あきょう） [cite: 1133]</span>
+            <span class="px-2 py-1 bg-kampo-green/10 text-[9px] rounded-full">柴胡（さいこ） [cite: 1135]</span>
+            <span class="px-2 py-1 bg-kampo-green/10 text-[9px] rounded-full">桂皮（けいひ） [cite: 1135]</span>
+            <span class="px-2 py-1 bg-kampo-green/10 text-[9px] rounded-full">地黄（じおう） [cite: 1137]</span>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">04</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">理論で納得させる「提案力」</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            西洋医学が「病気そのもの」を治すなら、漢方は「全体のバランス」を整えます [cite: 16-21]。この根本的な違いを論理的に説明できることで、周囲からの信頼は確固たるものになります [cite: 589]。
+          </p>
+          <div class="relative h-24 flex items-center justify-center bg-pattern border border-kampo-gold/10">
+            <div class="flex items-center gap-6">
+              <div class="text-center">
+                <span class="text-[9px] block text-gray-400">西洋医学</span>
+                <span class="text-xs font-bold text-kampo-ink">対症・分析 [cite: 18]</span>
+              </div>
+              <div class="text-kampo-gold font-serif">×</div>
+              <div class="text-center">
+                <span class="text-[9px] block text-gray-400">漢方医学</span>
+                <span class="text-xs font-bold text-kampo-green">総合・調和 [cite: 21]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-24 p-10 bg-kampo-green text-white rounded-sm text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-kampo-gold"></div>
+        <h4 class="text-lg font-serif mb-6 tracking-widest">
+          あなたの助言が、誰かの「救い」になる。
+        </h4>
+        <p class="text-[13px] leading-relaxed opacity-80 mb-8 max-w-lg mx-auto">
+          「同じ不眠でも、なぜあの人にはこの漢方が効かないのか？」<br>
+          20の症例ドリルを終える頃、あなたは一人ひとりの体質に深く寄り添い、<br class="hidden md:block">
+          最適な答えを導き出すプロの視座を手にしているはずです。
+        </p>
+        <a href="#form"
+          class="inline-block border border-white/40 px-10 py-4 text-xs tracking-[0.2em] hover:bg-white hover:text-kampo-green transition-all uppercase">
+          症例ガイドのサンプルを見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

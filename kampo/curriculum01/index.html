@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>漢方 - 基本01</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kampo-green': '#2D4B3E', 
+                        'kampo-beige': '#F5F2ED', 
+                        'kampo-ink': '#1A1A1A',   
+                        'kampo-gold': '#A68A56',  
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        'widest-jp': '0.15em',
+                        'looser': '0.1em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>body{min-height:max(884px,100dvh);}</style>
+</head>
+<body class="bg-kampo-beige text-kampo-ink font-sans leading-relaxed tracking-looser">
+<section class="pt-28 pb-20 px-6 bg-white overflow-hidden" id="page-a">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-16">
+      <span class="text-kampo-gold font-serif block mb-2 tracking-[0.4em] text-sm uppercase">Learning Content A</span>
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-kampo-green leading-tight tracking-widest-jp">
+        心と体のサインを翻訳する<br class="hidden md:block">「漢方のモノサシ」
+      </h2>
+      <div class="w-12 h-px bg-kampo-gold mx-auto mt-6"></div>
+    </div>
+
+    <p class="text-center text-gray-600 mb-20 leading-relaxed max-w-2xl mx-auto">
+      漢方では、人間も自然の一部と考えます。<br>
+      バラバラに見えていた不調が、2,000年前から続く「4つのモノサシ」で読み解くと、一本の線でつながります。
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+
+      <div class="relative group">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-4xl font-serif text-kampo-gold/30 italic">01</span>
+          <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">五行理論の「感情」と「臓器」</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+          万物を「木・火・土・金・水」に分類。なぜ「怒り」が「肝」を傷め、爪や目にサインが出るのか。その神秘的な繋がりを体系的に理解します。
+        </p>
+        <div class="relative w-48 h-48 mx-auto">
+          <div
+            class="absolute inset-0 border-[1px] border-dashed border-kampo-gold/40 rounded-full animate-spin-custom">
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <span class="block text-[10px] tracking-widest text-kampo-gold mb-1">五臓五志</span>
+              <span class="text-xs font-serif text-kampo-green">肝・心・脾・肺・腎</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-4xl font-serif text-kampo-gold/30 italic">02</span>
+          <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">体を支える「3つの大黒柱」</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+          生命エネルギーの「気」、栄養を運ぶ「血」、潤いを与える「水」。どれが不足し、どこで滞っているか。不調の「正体」を可視化します。
+        </p>
+        <div class="flex justify-around items-end h-32 px-4 gap-2">
+          <div class="w-8 bg-kampo-green/20 rounded-t h-full relative" title="気">
+            <div class="absolute bottom-0 w-full bg-kampo-green h-[70%] rounded-t"></div>
+            <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold">気</span>
+          </div>
+          <div class="w-8 bg-kampo-green/20 rounded-t h-full relative" title="血">
+            <div class="absolute bottom-0 w-full bg-kampo-gold h-[40%] rounded-t"></div>
+            <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold">血</span>
+          </div>
+          <div class="w-8 bg-kampo-green/20 rounded-t h-full relative" title="水">
+            <div class="absolute bottom-0 w-full bg-blue-400 h-[90%] rounded-t"></div>
+            <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold">水</span>
+          </div>
+        </div>
+        <p class="mt-10 text-[11px] text-center text-kampo-gold italic">※自分のバランスは教材内の診断シートで確認</p>
+      </div>
+
+      <div class="relative group">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-4xl font-serif text-kampo-gold/30 italic">03</span>
+          <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">病気の「時間軸」を知る</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+          病状は「太陽病」から「厥陰病」まで6段階で進行します。今、攻めの治療をすべきか、守りの養生をすべきか。時間軸で判断する力を養います。
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="h-1 flex-1 bg-gradient-to-r from-kampo-gold to-kampo-green rounded-full relative">
+            <div class="absolute -top-2 left-0 w-4 h-4 bg-white border-2 border-kampo-gold rounded-full shadow-sm">
+            </div>
+            <div class="absolute -top-2 right-0 w-4 h-4 bg-white border-2 border-kampo-green rounded-full shadow-sm">
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between mt-2 text-[9px] tracking-tighter text-gray-400 uppercase">
+          <span>初期（表）</span>
+          <span>重篤（裏）</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-4xl font-serif text-kampo-gold/30 italic">04</span>
+          <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">究極の判定「証」の決定</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+          「熱・寒」「虚・実」など8つの要素を掛け合わせる「八綱分類」。西洋医学では難しい「原因不明の悩み」に答えを出す、漢方の核心に迫ります。
+        </p>
+        <div class="grid grid-cols-4 gap-1">
+          <div class="bg-kampo-beige p-2 text-center text-[9px] font-bold">表/裏</div>
+          <div class="bg-kampo-beige p-2 text-center text-[9px] font-bold">寒/熱</div>
+          <div class="bg-kampo-beige p-2 text-center text-[9px] font-bold">虚/実</div>
+          <div class="bg-kampo-beige p-2 text-center text-[9px] font-bold">陰/陽</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-24 p-10 bg-kampo-green text-white rounded-sm text-center relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-1 bg-kampo-gold"></div>
+      <h4 class="text-lg font-serif mb-6 tracking-widest">
+        理論は、使いこなせてこそ意味がある。
+      </h4>
+      <p class="text-[13px] leading-relaxed opacity-80 mb-8 max-w-lg mx-auto">
+        「冷えているのにのぼせる」「食べていないのに太る」。<br>
+        そんな複雑に絡み合った不調を紐解くための「プロの優先順位付け」は、<br class="hidden md:block">
+        本編の症例ワークを通じて、あなたの血肉となります。
+      </p>
+      <a href="#form"
+        class="inline-block border border-white/40 px-10 py-4 text-xs tracking-[0.2em] hover:bg-white hover:text-kampo-green transition-all uppercase">
+        判定の続きを教材で学ぶ
+      </a>
+    </div>
+  </div>
+</section>
+<!-- 追従バナー -->
+<div class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 py-4 border-b border-kampo-green/10 shadow-sm">
+  <div class="flex justify-center items-center">
+    <a href="../" class="flex items-center gap-2 text-kampo-green font-bold text-sm tracking-widest hover:text-kampo-gold transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      トップページへ戻る
+    </a>
+  </div>
+</div>
+</body>
+</html>

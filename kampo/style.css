@@ -1,0 +1,60 @@
+/* ベースのタイポグラフィとリセット */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* 縦書きのクラス（必要に応じて利用） */
+.vertical-text {
+    writing-mode: vertical-rl;
+}
+
+/* テキストシャドウのカスタマイズ */
+.text-shadow-sm {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.text-shadow-md {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* 五行アイコンの回転アニメーション */
+@keyframes spin-custom {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-custom {
+    animation: spin-custom 12s linear infinite;
+}
+
+/* レスポンシブ調整用のユーティリティ */
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 1.75rem;
+        line-height: 1.5;
+    }
+}
+/* ロードマップの数字円のデザイン微調整 */
+.absolute.left-0.top-0.w-11.h-11 {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* ロードマップ：各ステップのホバー効果（任意） */
+[data-purpose="roadmap-step"]:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* モバイルでのテキスト可読性向上 */
+@media (max-width: 640px) {
+    .pl-14 {
+        padding-left: 3.5rem;
+    }
+}

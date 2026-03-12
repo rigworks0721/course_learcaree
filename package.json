@@ -1,0 +1,16 @@
+{
+  "name": "lclp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server --files \"**/*.html, **/*.css, **/*.js\"",
+    "build": "powershell -Command \"if (!(Test-Path dist)) { New-Item -ItemType Directory dist }; Copy-Item * dist -Recurse -Force -Exclude node_modules,dist\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}

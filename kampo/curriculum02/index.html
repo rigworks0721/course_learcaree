@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>漢方の実践 - 基本02</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'kampo-green': '#2D4B3E',
+            'kampo-beige': '#F5F2ED',
+            'kampo-ink': '#1A1A1A',
+            'kampo-gold': '#A68A56',
+          },
+          fontFamily: {
+            serif: ['"Noto Serif JP"', 'serif'],
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          letterSpacing: {
+            'widest-jp': '0.15em',
+            'looser': '0.1em',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+
+    .bg-pattern {
+      background-color: #ffffff;
+      background-image: radial-gradient(#A68A56 0.5px, transparent 0.5px);
+      background-size: 24px 24px;
+      background-opacity: 0.1;
+    }
+  </style>
+</head>
+
+<body class="bg-kampo-beige text-kampo-ink font-sans leading-relaxed tracking-looser">
+
+  <div
+    class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 py-4 border-b border-kampo-green/10 shadow-sm">
+    <div class="flex justify-center items-center">
+      <a href="../"
+        class="flex items-center gap-2 text-kampo-green font-bold text-sm tracking-widest hover:text-kampo-gold transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        トップページへ戻る
+      </a>
+    </div>
+  </div>
+
+  <section class="pt-28 pb-20 px-6 bg-white overflow-hidden" id="page-b">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-16">
+        <span class="text-kampo-gold font-serif block mb-2 tracking-[0.4em] text-sm uppercase">Learning Content B</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-kampo-green leading-tight tracking-widest-jp">
+          台所から人生を整える<br class="hidden md:block">「漢方の実践と養生」
+        </h2>
+        <div class="w-12 h-px bg-kampo-gold mx-auto mt-6"></div>
+      </div>
+
+      <p class="text-center text-gray-600 mb-20 leading-relaxed max-w-2xl mx-auto">
+        漢方は「飲む」だけではありません。道具の選び方、飲み方、そして日々の食事。<br>
+        正しい「作法」を知ることで、あなたの暮らしそのものが癒しの時間に変わります。
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">01</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">道具と火加減の「黄金比」</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            生薬の力を引き出すには容器選びが重要です。鉄やアルミを避け、土瓶や耐熱ガラスを使う理由から、水が半分になるまでじっくり煎じる「時間」の作法を学びます。
+          </p>
+          <div class="bg-kampo-beige/50 p-6 rounded-sm border border-kampo-gold/10">
+            <div class="flex flex-col items-center justify-center gap-4">
+              <div class="text-[10px] text-kampo-gold tracking-[0.2em] font-bold uppercase">Recommended Vessels</div>
+              <div class="flex gap-4 text-xs font-serif text-kampo-green">
+                <span class="px-3 py-1 border border-kampo-green/30 bg-white">土瓶</span>
+                <span class="px-3 py-1 border border-kampo-green/30 bg-white">耐熱ガラス</span>
+                <span class="px-3 py-1 border border-kampo-green/30 bg-white">ホーロー</span>
+              </div>
+              <div class="w-full h-px bg-kampo-gold/20 my-2"></div>
+              <div class="text-[11px] text-gray-500 italic">※金属との化学変化を防ぐための専門知恵 </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">02</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">効果を最大化する「飲み方」</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            なぜ「空腹時」に飲むのか？なぜ「温かい状態」が良いのか？単なる知識ではなく、胃の中での混ざり方や吸収のメカニズムから、その重要性を納得して実践できるようになります。
+          </p>
+          <div class="relative py-4 px-2">
+            <div
+              class="flex justify-between items-center bg-white border border-kampo-gold/20 p-4 rounded-sm shadow-sm">
+              <div class="text-center flex-1">
+                <span class="block text-[10px] text-kampo-gold mb-1">Time</span>
+                <span class="text-xs font-bold text-kampo-green">食前・食間</span>
+              </div>
+              <div class="w-px h-8 bg-kampo-gold/20"></div>
+              <div class="text-center flex-1">
+                <span class="block text-[10px] text-kampo-gold mb-1">Temp</span>
+                <span class="text-xs font-bold text-kampo-green">人肌以上の温かさ</span>
+              </div>
+            </div>
+            <p class="mt-4 text-[11px] text-center text-kampo-gold italic">※体調による食後への切り替え判断も網羅 [cite: 81]</p>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">03</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">「五味」を薬に変える献立</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            酸・苦・甘・辛・鹹。食材の「味」にはそれぞれ役割があります。山芋、大根、ショウガ、ネギ。スーパーの食材を体質に合わせて選ぶ「薬膳」の基礎を習得します。
+          </p>
+          <div class="grid grid-cols-5 gap-1">
+            <div class="aspect-square bg-kampo-beige flex flex-col items-center justify-center rounded-sm">
+              <span class="text-[10px] text-kampo-gold">酸</span><span class="text-[8px] scale-90">肝</span>
+            </div>
+            <div class="aspect-square bg-kampo-beige flex flex-col items-center justify-center rounded-sm">
+              <span class="text-[10px] text-kampo-gold">苦</span><span class="text-[8px] scale-90">心</span>
+            </div>
+            <div class="aspect-square bg-kampo-green text-white flex flex-col items-center justify-center rounded-sm">
+              <span class="text-[10px]">甘</span><span class="text-[8px] scale-90">脾</span>
+            </div>
+            <div class="aspect-square bg-kampo-beige flex flex-col items-center justify-center rounded-sm">
+              <span class="text-[10px] text-kampo-gold">辛</span><span class="text-[8px] scale-90">肺</span>
+            </div>
+            <div class="aspect-square bg-kampo-beige flex flex-col items-center justify-center rounded-sm">
+              <span class="text-[10px] text-kampo-gold">鹹</span><span class="text-[8px] scale-90">腎</span>
+            </div>
+          </div>
+          <p class="mt-4 text-[10px] text-gray-400">※各味に対応する具体的な食材リストをテキストに掲載 [cite: 447, 449, 474]</p>
+        </div>
+
+        <div class="relative group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-4xl font-serif text-kampo-gold/30 italic">04</span>
+            <h3 class="text-xl font-serif font-bold border-b border-kampo-gold/30 pb-1">鮮度と「命」を守る管理法</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+            保存料のない煎じ液は、いわば「生もの」。季節による保存場所の使い分け、虫や湿気から大切な生薬を守るプロの保管テクニックを学びます。
+          </p>
+          <div class="flex items-center gap-4 bg-pattern p-4 border border-kampo-gold/10">
+            <div class="flex-1 text-center">
+              <span class="text-[10px] block text-gray-500 mb-1">煎じ液</span>
+              <span class="text-xs text-kampo-green font-bold">当日飲み切り</span>
+            </div>
+            <div class="w-px h-6 bg-kampo-gold/20"></div>
+            <div class="flex-1 text-center">
+              <span class="text-[10px] block text-gray-500 mb-1">梅雨・夏場</span>
+              <span class="text-xs text-kampo-green font-bold">必ず冷蔵庫へ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-24 p-10 bg-kampo-green text-white rounded-sm text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-kampo-gold"></div>
+        <h4 class="text-lg font-serif mb-6 tracking-widest">
+          「選ぶ・作る・飲む」そのすべてが養生。
+        </h4>
+        <p class="text-[13px] leading-relaxed opacity-80 mb-8 max-w-lg mx-auto">
+          「体力が落ちている時には何を足すべきか？」「苦くて飲めない時のアレンジは？」。<br>
+          160種類以上の生薬データベースと、生活に密着した実践ノウハウは、<br class="hidden md:block">
+          あなたと家族を守る一生の財産になります。
+        </p>
+        <a href="#form"
+          class="inline-block border border-white/40 px-10 py-4 text-xs tracking-[0.2em] hover:bg-white hover:text-kampo-green transition-all uppercase">
+          実践ガイドの全貌を教材で見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
