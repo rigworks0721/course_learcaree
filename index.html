@@ -1,369 +1,223 @@
 <!DOCTYPE html>
-
-<html lang="ja"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ec13a4",
-                        "background-light": "#f8f6f7",
-                        "background-dark": "#22101c",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資格一覧 | Learn Career（ラーンキャリア）</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7fb8b0; /* 落ち着いたミントグリーン */
+            --accent-color: #e6a4b4;  /* 柔らかなピンク */
+            --text-color: #333;
+            --bg-color: #f9f9f9;
         }
-    </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
-<!-- Top Navigation -->
-<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
-  <div class="relative max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-    <!-- logo -->
-    <div class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-3xl">palette</span>
-      <span class="font-bold text-lg tracking-tight">Personal Color Certification</span>
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .lead {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* 資格カードレイアウト */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* イメージ（プレースホルダ） */
+        .course-image {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #aaa;
+        }
+
+        .course-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-category {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            color: #222;
+        }
+
+        .course-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .course-btn {
+            display: inline-block;
+            text-align: center;
+            background-color: #fff;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover .course-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>資格一覧</h1>
+            <p class="lead">あなたの新しい一歩を支える、一生モノのスキル。 <br>各専門家が監修した本格カリキュラムをご用意しました。</p>
+        </header>
+
+        <div class="course-grid">
+
+            <a href="https://course.lear-caree.jp/personalcolor" class="course-card">
+                <div class="course-image" style="background-image: linear-gradient(135deg, #FFD1DC, #C1E1C1);">Personal Color</div>
+                <div class="course-content">
+                    <span class="course-category">Beauty / Fashion</span>
+                    <h2 class="course-title">パーソナルカラープランナー</h2>
+                    <p class="course-description">「似合う」の理論をマスターし、個々の魅力を最大限に引き出すプロを目指します。</p>
+                    <div class="course-btn">詳細を見る</div>
+                </div>
+            </a>
+
+            <a href="https://course.lear-caree.jp/coarching" class="course-card">
+                <div class="course-image" style="background-image: linear-gradient(135deg, #E0F7FA, #B2EBF2);">Coaching</div>
+                <div class="course-content">
+                    <span class="course-category">Business / Mental</span>
+                    <h2 class="course-title">コーチングプロフェッショナル</h2>
+                    <p class="course-description">対話を通じて相手の可能性を引き出し、目標達成へ導く本格的な対人支援スキル。</p>
+                    <div class="course-btn">詳細を見る</div>
+                </div>
+            </a>
+
+            <a href="https://course.lear-caree.jp/babymassage" class="course-card">
+                <div class="course-image" style="background-image: linear-gradient(135deg, #FFF9C4, #FFECB3);">Baby Massage</div>
+                <div class="course-content">
+                    <span class="course-category">Childcare / Healing</span>
+                    <h2 class="course-title">ベビーマッサージプロフェッショナル</h2>
+                    <p class="course-description">赤ちゃんとママの絆を深める手技と、発達心理に基づいたケアを学びます。</p>
+                    <div class="course-btn">詳細を見る</div>
+                </div>
+            </a>
+
+            <a href="https://course.lear-caree.jp/coffee" class="course-card">
+                <div class="course-image" style="background-image: linear-gradient(135deg, #D7CCC8, #A1887F);">Coffee Specialist</div>
+                <div class="course-content">
+                    <span class="course-category">Food / Hobby</span>
+                    <h2 class="course-title">コーヒープロフェッショナル</h2>
+                    <p class="course-description">豆の選定から焙煎、抽出技術まで。最高の一杯を提供するための知識を習得。</p>
+                    <div class="course-btn">詳細を見る</div>
+                </div>
+            </a>
+
+            <a href="https://course.lear-caree.jp/kampo" class="course-card">
+                <div class="course-image" style="background-image: linear-gradient(135deg, #DCEDC8, #C5E1A5);">Oriental Medicine</div>
+                <div class="course-content">
+                    <span class="course-category">Health / Life</span>
+                    <h2 class="course-title">漢方アドバイザー</h2>
+                    <p class="course-description">東洋医学の智慧を暮らしに。体質を見極め、心身の調子を整える知識を身につけます。</p>
+                    <div class="course-btn">詳細を見る</div>
+                </div>
+            </a>
+
+            <a href="https://course.lear-caree.jp/supplement" class="course-card">
+                <div class="course-image" style="background-image: linear-gradient(135deg, #E1F5FE, #B3E5FC);">Supplement Advisor</div>
+                <div class="course-content">
+                    <span class="course-category">Health / Nutrition</span>
+                    <h2 class="course-title">サプリメントアドバイザー</h2>
+                    <p class="course-description">溢れる情報から正しいものを選び抜く力。栄養学に基づいた適切な選び方を提案。</p>
+                    <div class="course-btn">詳細を見る</div>
+                </div>
+            </a>
+
+        </div>
     </div>
 
-    <!-- desktop links -->
-    <div class="hidden md:flex gap-6 text-sm font-medium">
-      <a class="hover:text-primary transition-colors" href="#features">特長</a>
-      <a class="hover:text-primary transition-colors" href="curriculum/index.html">カリキュラム</a>
-      <a class="hover:text-primary transition-colors" href="#faq">よくある質問</a>
-    </div>
-
-    <!-- 資料請求 button for desktop -->
-    <button class="hidden md:block bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">
-      資料請求
-    </button>
-
-    <!-- hamburger for mobile -->
-    <button id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-primary/10 transition-colors">
-      <span class="material-symbols-outlined text-2xl">menu</span>
-    </button>
-  </div>
-
-  <!-- mobile nav panel -->
-  <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full z-40 bg-background-light dark:bg-background-dark border-t border-primary/10">
-    <div class="flex flex-col p-4 gap-4">
-      <a class="hover:text-primary transition-colors" href="#features">特長</a>
-      <a class="hover:text-primary transition-colors" href="curriculum/index.html">カリキュラム</a>
-      <a class="hover:text-primary transition-colors" href="#faq">よくある質問</a>
-      <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">
-        資料請求
-      </button>
-    </div>
-  </div>
-</nav>
-<!-- Hero Section -->
-<section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32">
-<div class="max-w-7xl mx-auto px-4">
-<div class="grid lg:grid-cols-2 gap-12 items-center">
-<div class="order-2 lg:order-1">
-<div class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-bold mb-6">
-                        35歳からのリスタート。
-                    </div>
-<h1 class="text-4xl lg:text-6xl font-black leading-tight mb-6 text-slate-900 dark:text-white">
-                        「似合う」の正解を<br/>知るだけで、<br/><span class="text-primary">明日の鏡が楽しみになる。</span>
-</h1>
-<p class="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
-                        好きな色を「一生モノの武器」に変えて、自分も周りも輝かせるプロのスキルを。大人世代だからこそ活かせる、共感と提案の技術を学びませんか？
-                    </p>
-<div class="flex flex-col sm:flex-row gap-4 mb-8">
-<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
-                            無料説明会に申し込む
-                        </button>
-<button class="bg-white dark:bg-slate-800 border-2 border-primary/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary/5 transition-colors text-slate-900 dark:text-white">
-                            資料を無料でダウンロード
-                        </button>
-</div>
-<div class="flex items-center gap-4">
-<div class="bg-primary/5 p-4 rounded-lg border border-primary/10">
-<p class="text-xs text-slate-500 uppercase tracking-wider mb-1">プロ認定まで</p>
-<p class="text-2xl font-black text-primary">最短2ヶ月</p>
-</div>
-<div class="bg-primary/5 p-4 rounded-lg border border-primary/10">
-<p class="text-xs text-slate-500 uppercase tracking-wider mb-1">受講生満足度</p>
-<p class="text-2xl font-black text-primary">98.5%</p>
-</div>
-</div>
-</div>
-<div class="order-1 lg:order-2 relative">
-<div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-<div class="w-full h-full bg-cover bg-center" data-alt="Mature woman professionally performing color analysis with colorful fabric drapes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJoRGfLhLYvBii_ukY01gW1VyU07sCnR1UwDEuH1MgRolJKt6oHU7S-w1P3hvZSOB9ZJGeoSzy1R3zyQjqjZDkdffvd6IAEgMpx5QDXU9noJqA-TPMfdcWo2GyhhGswP893H0o1fv98oet4pB0HB1YzqRh7gy-tsWKf5lSqd7xxaAejRu8asqlr-OhTS2fydjtMZ5QAtIeZ4N9Rad9xPvdyKZdtJWg0j9fzFo8dI_ptVxklGVQB_Znk6Kzq4rNlWbd81MU6rj77mw')"></div>
-</div>
-<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border border-primary/10 max-w-[240px]">
-<div class="flex items-center gap-2 mb-2">
-<span class="material-symbols-outlined text-primary">verified</span>
-<span class="font-bold text-sm">JPC認定資格取得</span>
-</div>
-<p class="text-xs text-slate-500">本コース修了で、プロのカラーアナリストとして活動可能です。</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Pain Points Section -->
-
-<script>
-  // simple hamburger toggle
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      menu.classList.toggle('hidden');
-    });
-
-    // close menu when a link inside is clicked (for better UX)
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  });
-</script>
-<section class="bg-primary/5 py-20">
-<div class="max-w-4xl mx-auto px-4">
-<h2 class="text-2xl lg:text-3xl font-bold text-center mb-12">
-                「今の自分、なんだかパッとしない…」<br class="hidden sm:block"/>そんな悩みはありませんか？
-            </h2>
-<div class="space-y-4">
-<div class="bg-white dark:bg-slate-800 p-6 rounded-xl flex items-start gap-4 shadow-sm">
-<span class="material-symbols-outlined text-primary mt-1">check_box</span>
-<p class="text-lg">年齢とともにこれまでの服が似合わなくなったと感じる</p>
-</div>
-<div class="bg-white dark:bg-slate-800 p-6 rounded-xl flex items-start gap-4 shadow-sm">
-<span class="material-symbols-outlined text-primary mt-1">check_box</span>
-<p class="text-lg">クローゼットは埋まっているのに、今日着る服がない</p>
-</div>
-<div class="bg-white dark:bg-slate-800 p-6 rounded-xl flex items-start gap-4 shadow-sm">
-<span class="material-symbols-outlined text-primary mt-1">check_box</span>
-<p class="text-lg">何か新しいことを始めて、これからの自分を変えたい</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Benefits Section -->
-<section class="py-20">
-<div class="max-w-7xl mx-auto px-4 text-center">
-<h2 class="text-3xl font-bold mb-4">パーソナルカラーを学ぶことで手に入る</h2>
-<p class="text-primary text-xl font-bold mb-16">「3つの新しい未来」</p>
-<div class="grid md:grid-cols-3 gap-8">
-<div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-primary/10 shadow-lg">
-<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary">
-<span class="material-symbols-outlined text-3xl">sentiment_satisfied</span>
-</div>
-<h3 class="text-xl font-bold mb-4">揺るぎない「自分への自信」</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">根拠のある「似合う」を知ることで、迷いが消え、毎日の装いに自信が持てます。</p>
-</div>
-<div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-primary/10 shadow-lg">
-<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary">
-<span class="material-symbols-outlined text-3xl">volunteer_activism</span>
-</div>
-<h3 class="text-xl font-bold mb-4">誰かを笑顔にする喜び</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">あなたのスキルで、周りの女性たちの魅力を引き出し、喜ばれる経験を。</p>
-</div>
-<div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-primary/10 shadow-lg">
-<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary">
-<span class="material-symbols-outlined text-3xl">work_history</span>
-</div>
-<h3 class="text-xl font-bold mb-4">一生モノのキャリア</h3>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed">年齢に関係なく、自宅サロンやフリーランスとして長く続けられる仕事です。</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Features Section -->
-<section class="py-20 bg-slate-900 text-white" id="features">
-<div class="max-w-7xl mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-16">大人の女性が「本気で学べる」4つの理由</h2>
-<div class="grid md:grid-cols-2 gap-12">
-<div class="flex gap-6">
-<span class="text-4xl font-black text-primary/40">01</span>
-<div>
-<h3 class="text-xl font-bold mb-2">未経験でも安心のステップアップ</h3>
-<p class="text-slate-400">色彩の基本から、丁寧な実技指導まで。初心者の方がプロとしてデビューできるまで導きます。</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="text-4xl font-black text-primary/40">02</span>
-<div>
-<h3 class="text-xl font-bold mb-2">ライフスタイルに合わせた柔軟な受講</h3>
-<p class="text-slate-400">オンライン座学と対面実技を組み合わせ。忙しい35歳からの世代でも無理なく学べます。</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="text-4xl font-black text-primary/40">03</span>
-<div>
-<h3 class="text-xl font-bold mb-2">徹底したマンツーマン添削・指導</h3>
-<p class="text-slate-400">大人数では聞きづらい質問も、個別コーチングで解消。納得いくまでスキルを磨けます。</p>
-</div>
-</div>
-<div class="flex gap-6">
-<span class="text-4xl font-black text-primary/40">04</span>
-<div>
-<h3 class="text-xl font-bold mb-2">充実の開業・ビジネスサポート</h3>
-<p class="text-slate-400">集客の方法からSNSの活用法まで、資格取得後の「仕事にする」ところまで並走します。</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Success Stories -->
-<section class="py-20 bg-background-light dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-16">受講生の声</h2>
-<div class="grid md:grid-cols-2 gap-8">
-<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-primary/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-16 h-16 rounded-full overflow-hidden bg-slate-200">
-<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of a smiling 42 year old woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzytvIrSkUb4tqS0DvWMxSCnRT4f0SmSHHI0INsts8CkdCCcuzouXGvY9TroROzmOp-gS0FVM6JJRQvlMGCCobsiK2x6E4IiZy-05JWYolSHCPJtMqvvqsWgO5Lzbf6uRrQTGfPL4PsY7fnoCpgP1Z56FF2fKIHYJwmq3BKRvCFbijLjdI7sJLGRN0V9PbBVzIA7pe3GeYyE5--1PhIbUK9NG9M0yHF1I-668iagvI9opFOZ4M_HFb-YZDZr71JEvDv8sZQ7dpnu4')"></div>
-</div>
-<div>
-<p class="font-bold">A.M様 (42歳)</p>
-<p class="text-xs text-slate-500">主婦からフリーランスへ</p>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-400 italic">「子供の手が離れ、何か自分にできることはないかと受講。色を学ぶことで自分自身が明るくなり、今では週末に自宅で診断を行っています。人生の第2章が始まりました。」</p>
-</div>
-<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-primary/5">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-16 h-16 rounded-full overflow-hidden bg-slate-200">
-<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of a confident 50 year old woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWRJH3vyvI7rAgy9rcW54LsApUiOB77nJK3EcEFUHC4JFnMpFJbms1ELVUn_bws3PPNbNX0JSmpqSeaGKXMnt75ax_njoAUt8KpvO1xSQVN93Xbe4l0VkMchY5mca3gAdmQmuTfIVCPydrVL_D19QmYP-8M6zT0lEwvFexmkZ0Iyn0ne8MQarhgCoc6rO1UosZapMz3TDCfX9fVwvWy2OPtAaq0-swx4O-RtG5RxqxKJ0islge1ToEz3_0hOlJYNd1SWsHCH01pyY')"></div>
-</div>
-<div>
-<p class="font-bold">K.S様 (50歳)</p>
-<p class="text-xs text-slate-500">美容系のお仕事のスキルアップに</p>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-400 italic">「50歳を過ぎてからの挑戦でしたが、同世代の悩みは自分だからこそ理解できると気づきました。お客様への説得力が増し、リピート率が格段に上がりました。」</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Curriculum & Pricing -->
-<section class="py-20" id="curriculum">
-<div class="max-w-4xl mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-16">カリキュラムと費用</h2>
-<div class="space-y-8 mb-16">
-<div class="flex items-center gap-6">
-<div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold shrink-0">1</div>
-<div class="flex-1 pb-8 border-b border-primary/10">
-<h3 class="font-bold text-lg mb-2">色の基礎理論（eラーニング）</h3>
-<p class="text-slate-600 dark:text-slate-400">色彩学の基礎から、パーソナルカラーの4シーズンシステムを体系的に学びます。</p>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold shrink-0">2</div>
-<div class="flex-1 pb-8 border-b border-primary/10">
-<h3 class="font-bold text-lg mb-2">診断実技・カウンセリング（対面/Zoom）</h3>
-<p class="text-slate-600 dark:text-slate-400">ドレープ（布）の当て方、顔色の変化の見極め、お客様への伝え方を実践的に習得します。</p>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold shrink-0">3</div>
-<div class="flex-1">
-<h3 class="font-bold text-lg mb-2">認定試験・修了証発行</h3>
-<p class="text-slate-600 dark:text-slate-400">規定の診断技術を習得したことを証明する資格。取得後すぐに活動を開始できます。</p>
-</div>
-</div>
-</div>
-<div class="bg-primary p-8 lg:p-12 rounded-3xl text-white text-center">
-<p class="text-lg mb-2">パーソナルカラーアナリスト養成コース</p>
-<div class="flex justify-center items-baseline gap-2 mb-6">
-<span class="text-2xl font-medium">一括受講料</span>
-<span class="text-5xl lg:text-7xl font-black">¥198,000</span>
-<span class="text-xl">(税込)</span>
-</div>
-<p class="text-sm opacity-80 mb-8">※分割払い可能（月々¥8,500〜） / 教材費・認定料込</p>
-<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:scale-[1.05] transition-transform">
-                    募集詳細を見る
-                </button>
-</div>
-</div>
-</section>
-<!-- FAQ -->
-<section class="py-20 bg-primary/5" id="faq">
-<div class="max-w-3xl mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-16">よくある質問</h2>
-<div class="space-y-6">
-<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5">
-<p class="font-bold flex gap-2 items-center mb-3">
-<span class="text-primary">Q.</span> 35歳を過ぎていますが、今からでも間に合いますか？
-                    </p>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-bold text-slate-900 dark:text-white">A.</span> もちろんです！むしろ、大人世代の悩みは大人世代のアナリストが一番共感できます。当スクールの受講生の8割が35歳以上です。
-                    </p>
-</div>
-<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5">
-<p class="font-bold flex gap-2 items-center mb-3">
-<span class="text-primary">Q.</span> センスに自信がないのですが、大丈夫でしょうか？
-                    </p>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-bold text-slate-900 dark:text-white">A.</span> パーソナルカラーは「理論」です。色の見え方のルールを学ぶので、個人のセンスに頼る必要はありません。どなたでもスキルとして習得可能です。
-                    </p>
-</div>
-</div>
-</div>
-</section>
-<!-- Final CTA -->
-<section class="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
-<div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-<h2 class="text-4xl lg:text-5xl font-black mb-6">10年後のあなたを、<br/>もっと鮮やかに。</h2>
-<p class="text-lg text-slate-600 dark:text-slate-400 mb-12">
-                色の力で、あなた自身の魅力も、誰かの笑顔も引き出す。そんな新しい人生の扉を、一緒に開きましょう。
-            </p>
-<!-- Limited Offer Badge -->
-<div class="inline-flex flex-col items-center bg-primary/10 border border-primary/20 p-8 rounded-2xl mb-12">
-<span class="text-primary font-bold mb-2">期間限定 特典</span>
-<p class="text-xl font-bold mb-1">今なら！診断用32色ドレープセットを</p>
-<p class="text-3xl font-black text-primary">プレゼント中</p>
-</div>
-<div class="flex flex-col sm:flex-row gap-6 justify-center">
-<button class="bg-primary text-white px-10 py-5 rounded-xl font-bold text-xl shadow-xl shadow-primary/30 hover:scale-[1.05] transition-transform">
-                    無料説明会に申し込む
-                </button>
-<button class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                    資料を無料でダウンロード
-                </button>
-</div>
-</div>
-<!-- Decoration -->
-<div class="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-<div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
-</section>
-<footer class="py-12 border-t border-primary/10 text-center text-sm text-slate-500">
-<div class="max-w-7xl mx-auto px-4">
-<div class="flex justify-center gap-4 mb-6 text-primary">
-<span class="material-symbols-outlined">camera_enhance</span>
-<span class="material-symbols-outlined">share</span>
-<span class="material-symbols-outlined">mail</span>
-</div>
-<p>© 2024 Personal Color Certification Program. All rights reserved.</p>
-</div>
-</footer>
-</body></html>
+</body>
+</html>
