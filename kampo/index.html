@@ -197,6 +197,18 @@
             </div>
         </div>
     </section>
+    <section class="py-16 px-0 bg-white" id="reviews">
+        <div class="px-6">
+            <div class="max-w-md mx-auto text-center mb-8">
+                <span class="text-kampo-gold font-serif block mb-1 tracking-[0.3em] text-xs uppercase">— Voices —</span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold text-kampo-green leading-snug tracking-widest-jp">受講者の声</h2>
+            </div>
+        </div>
+        <div class="reviews-marquee" data-reviews-marquee>
+            <div class="reviews-track" data-reviews-track></div>
+        </div>
+    </section>
+
 <section class="py-16 px-6 bg-kampo-beige">
         <div class="max-w-md mx-auto">
             <div class="text-center mb-12">
@@ -288,5 +300,43 @@
             </div>
         </div>
     </footer>
+    <script>
+    (async function () {
+      const track = document.querySelector('[data-reviews-track]');
+      if (!track) return;
+      try {
+        const res = await fetch('../review_api.php?path=' + encodeURIComponent('/kampo'));
+        const json = await res.json();
+        const rows = Array.isArray(json.data) ? json.data : [];
+        if (!rows.length) {
+          track.innerHTML = '<div class="review-empty">レビューは準備中です。</div>';
+          return;
+        }
+
+        const toCard = (r) => {
+          const isFemale = r.gender === 'female';
+          const genderLabel = isFemale ? '女性' : '男性';
+          const avatarClass = isFemale ? 'is-female' : 'is-male';
+          const avatarIcon = isFemale ? '♀' : '♂';
+          const stars = '★'.repeat(Math.max(1, Math.min(5, Number(r.rating) || 1)));
+          return `
+            <article class="review-card">
+              <div class="review-head">
+                <div class="review-avatar ${avatarClass}">${avatarIcon}</div>
+                <div class="review-meta">${r.age_group}・${genderLabel}</div>
+                <div class="review-rate"><span class="stars">${stars}</span><span class="score">${r.rating}</span></div>
+              </div>
+              <p class="review-text">${String(r.comment || '').replace(/[&<>"]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}</p>
+            </article>`;
+        };
+
+        const html = rows.map(toCard).join('');
+        track.innerHTML = html + html;
+      } catch (e) {
+        track.innerHTML = '<div class="review-empty">レビューの読み込みに失敗しました。</div>';
+      }
+    })();
+    </script>
+
 </body>
 </html>
