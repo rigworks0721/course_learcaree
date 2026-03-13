@@ -283,7 +283,7 @@
         </div>
     </section>
 
-    <footer class="bg-kampo-ink text-white py-14 px-6" id="form">
+    <section class="bg-kampo-ink text-white py-14 px-6" id="form">
         <div class="max-w-md mx-auto text-center">
             <h2 class="font-serif text-lg mb-8 tracking-[0.2em]">まずは無料で、その一歩を。</h2>
             <div class="space-y-3 max-w-[300px] mx-auto">
@@ -299,11 +299,12 @@
                 <p class="text-[9px] tracking-widest opacity-50 uppercase">© Kampo Advisor Training Course ALL RIGHTS RESERVED.</p>
             </div>
         </div>
-    </footer>
+    </section>
     <script>
     (async function () {
+      const marquee = document.querySelector('[data-reviews-marquee]');
       const track = document.querySelector('[data-reviews-track]');
-      if (!track) return;
+      if (!track || !marquee) return;
       try {
         const res = await fetch('../review_api.php?path=' + encodeURIComponent('/kampo'));
         const json = await res.json();
@@ -316,27 +317,106 @@
         const toCard = (r) => {
           const isFemale = r.gender === 'female';
           const genderLabel = isFemale ? '女性' : '男性';
-          const avatarClass = isFemale ? 'is-female' : 'is-male';
-          const avatarIcon = isFemale ? '♀' : '♂';
-          const stars = '★'.repeat(Math.max(1, Math.min(5, Number(r.rating) || 1)));
+          const escapedComment = String(r.comment || '').replace(/[&<>"]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+          const starIcon = '<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.22 6.12 20.31l1.12-6.55L2.48 9.12l6.58-.96L12 2.2z"/></svg>';
+          const stars = Array.from({ length: Math.max(1, Math.min(5, Number(r.rating) || 1)) }, () => starIcon).join('');
+          const avatarSrc = isFemale ? '../images/round_female.png' : '../images/round_male.png';
           return `
             <article class="review-card">
               <div class="review-head">
-                <div class="review-avatar ${avatarClass}">${avatarIcon}</div>
-                <div class="review-meta">${r.age_group}・${genderLabel}</div>
-                <div class="review-rate"><span class="stars">${stars}</span><span class="score">${r.rating}</span></div>
+                <div class="review-avatar"><img src="${avatarSrc}" alt="${genderLabel}アイコン" loading="lazy"></div>
+                <div class="review-content">
+                  <div class="review-meta">${r.age_group}・${genderLabel}</div>
+                  <div class="review-rate"><span class="stars">${stars}</span><span class="score">${r.rating}</span></div>
+                </div>
               </div>
-              <p class="review-text">${String(r.comment || '').replace(/[&<>"]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}</p>
+              <p class="review-text">${escapedComment}</p>
             </article>`;
         };
 
         const html = rows.map(toCard).join('');
         track.innerHTML = html + html;
+
+        let singleSetWidth = 0;
+        let offset = 0;
+        const autoSpeed = 0.38;
+        let isDragging = false;
+        let dragStartX = 0;
+        let startOffset = 0;
+        let rafId = null;
+
+        const normalize = () => {
+          if (!singleSetWidth) return;
+          while (offset <= -singleSetWidth) offset += singleSetWidth;
+          while (offset > 0) offset -= singleSetWidth;
+        };
+
+        const render = () => {
+          track.style.transform = `translateX(${offset}px)`;
+        };
+
+        const recalc = () => {
+          singleSetWidth = track.scrollWidth / 2;
+          normalize();
+          render();
+        };
+
+        const loop = () => {
+          if (!isDragging) {
+            offset -= autoSpeed;
+            normalize();
+            render();
+          }
+          rafId = requestAnimationFrame(loop);
+        };
+
+        const getClientX = (event) => {
+          if (event.touches && event.touches.length) return event.touches[0].clientX;
+          if (event.changedTouches && event.changedTouches.length) return event.changedTouches[0].clientX;
+          return event.clientX;
+        };
+
+        const startDrag = (event) => {
+          isDragging = true;
+          marquee.classList.add('is-dragging');
+          dragStartX = getClientX(event);
+          startOffset = offset;
+        };
+
+        const moveDrag = (event) => {
+          if (!isDragging) return;
+          const delta = getClientX(event) - dragStartX;
+          offset = startOffset + delta;
+          normalize();
+          render();
+        };
+
+        const endDrag = () => {
+          isDragging = false;
+          marquee.classList.remove('is-dragging');
+        };
+
+        recalc();
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(loop);
+
+        marquee.addEventListener('pointerdown', (event) => {
+          marquee.setPointerCapture(event.pointerId);
+          startDrag(event);
+        });
+        marquee.addEventListener('pointermove', moveDrag);
+        marquee.addEventListener('pointerup', endDrag);
+        marquee.addEventListener('pointercancel', endDrag);
+        marquee.addEventListener('touchstart', startDrag, { passive: true });
+        marquee.addEventListener('touchmove', moveDrag, { passive: true });
+        marquee.addEventListener('touchend', endDrag);
+        window.addEventListener('resize', recalc);
       } catch (e) {
         track.innerHTML = '<div class="review-empty">レビューの読み込みに失敗しました。</div>';
       }
     })();
     </script>
 
+    <script src="../assets/js/common-footer.js" defer></script>
 </body>
 </html>
