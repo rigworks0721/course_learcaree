@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バナー一覧 | 管理画面</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h1 class="brand">Banner Admin</h1>
+      <nav class="nav">
+        <a href="./dashboard.html" class="active">一覧</a>
+        <a href="./create.html">新規作成</a>
+        <a href="./index.html">ログアウト</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="page-head">
+        <h2 class="page-title">ポップアップバナー一覧</h2>
+        <a href="./create.html" class="btn btn-primary">+ 新規作成</a>
+      </header>
+
+      <section class="card table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>タイトル</th>
+              <th>画像</th>
+              <th>リンク先URL</th>
+              <th>表示対象ページ</th>
+              <th>表示秒数</th>
+              <th>公開状態</th>
+              <th>表示順</th>
+              <th>更新日時</th>
+              <th>編集</th>
+              <th>削除</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>春のセール告知</td>
+              <td><img class="thumb" src="https://picsum.photos/seed/banner1/120/72" alt="春のセール"></td>
+              <td>https://example.com/spring</td>
+              <td>/, /campaign</td>
+              <td>5秒</td>
+              <td><span class="badge badge-public">公開</span></td>
+              <td>1</td>
+              <td>2026-03-01 10:10</td>
+              <td><a href="./edit.html?id=1" class="btn btn-secondary">編集</a></td>
+              <td><button class="btn btn-danger" data-open-delete data-id="1">削除</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>メルマガ登録促進</td>
+              <td><img class="thumb" src="https://picsum.photos/seed/banner2/120/72" alt="メルマガ"></td>
+              <td>https://example.com/mail</td>
+              <td>/blog</td>
+              <td>7秒</td>
+              <td><span class="badge badge-private">非公開</span></td>
+              <td>2</td>
+              <td>2026-03-02 09:30</td>
+              <td><a href="./edit.html?id=2" class="btn btn-secondary">編集</a></td>
+              <td><button class="btn btn-danger" data-open-delete data-id="2">削除</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>クーポン配布</td>
+              <td><img class="thumb" src="https://picsum.photos/seed/banner3/120/72" alt="クーポン"></td>
+              <td>https://example.com/coupon</td>
+              <td>/shop, /product/*</td>
+              <td>3秒</td>
+              <td><span class="badge badge-public">公開</span></td>
+              <td>3</td>
+              <td>2026-03-05 18:00</td>
+              <td><a href="./edit.html?id=3" class="btn btn-secondary">編集</a></td>
+              <td><button class="btn btn-danger" data-open-delete data-id="3">削除</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" data-delete-modal>
+    <div class="modal">
+      <h2>削除の確認</h2>
+      <p>このバナーを削除しますか？この操作は取り消せません（UIモックのため実際には削除されません）。</p>
+      <div class="actions">
+        <button class="btn btn-secondary" data-close-delete>キャンセル</button>
+        <button class="btn btn-danger" data-confirm-delete>削除する</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
