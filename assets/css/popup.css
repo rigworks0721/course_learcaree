@@ -1,0 +1,68 @@
+.lc-popup-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease;
+}
+
+.lc-popup-overlay--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lc-popup-modal {
+  position: relative;
+  width: min(92vw, 520px);
+  max-height: 90vh;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  background: #fff;
+}
+
+.lc-popup-link,
+.lc-popup-image {
+  display: block;
+  width: 100%;
+}
+
+.lc-popup-image {
+  height: auto;
+}
+
+.lc-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lc-popup-close:hover,
+.lc-popup-close:focus-visible {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 600px) {
+  .lc-popup-overlay {
+    padding: 12px;
+  }
+
+  .lc-popup-modal {
+    width: 100%;
+  }
+}
