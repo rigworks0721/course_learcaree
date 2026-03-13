@@ -34,6 +34,7 @@ function setupDeleteModal() {
   const modal = document.querySelector('[data-delete-modal]');
   if (!modal) return;
 
+  const deleteUrl = modal.getAttribute('data-delete-url') || './delete.php';
   const openButtons = document.querySelectorAll('[data-open-delete]');
   const cancelButtons = modal.querySelectorAll('[data-close-delete]');
   const confirmButton = modal.querySelector('[data-confirm-delete]');
@@ -62,9 +63,10 @@ function setupDeleteModal() {
 
   confirmButton?.addEventListener('click', () => {
     if (selectedId) {
-      alert(`ID: ${selectedId} のデータを削除する想定です（ダミー動作）`);
+      window.location.href = `${deleteUrl}?id=${encodeURIComponent(selectedId)}`;
+      return;
     }
+
     modal.classList.remove('show');
-    selectedId = null;
   });
 }
