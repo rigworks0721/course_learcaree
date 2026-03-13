@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>編集 | 管理画面</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h1 class="brand">Banner Admin</h1>
+      <nav class="nav">
+        <a href="./dashboard.html" class="active">一覧</a>
+        <a href="./create.html">新規作成</a>
+        <a href="./index.html">ログアウト</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="page-head">
+        <h2 class="page-title">バナー編集（ID: 1）</h2>
+      </header>
+
+      <section class="card">
+        <form>
+          <div class="form-grid">
+            <div class="field full">
+              <label for="title">タイトル</label>
+              <input id="title" type="text" value="春のセール告知" required>
+            </div>
+
+            <div class="field">
+              <label for="image">画像アップロード</label>
+              <input id="image" type="file" accept="image/*" data-image-input data-preview-target="#editPreview">
+            </div>
+
+            <div class="field">
+              <label>画像プレビュー</label>
+              <div id="editPreview" class="preview-box">
+                <img src="https://picsum.photos/seed/banner1/320/180" alt="現在の登録画像">
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="url">リンク先URL</label>
+              <input id="url" type="url" value="https://example.com/spring">
+            </div>
+
+            <div class="field">
+              <label for="target">表示対象ページ</label>
+              <input id="target" type="text" value="/, /campaign">
+            </div>
+
+            <div class="field">
+              <label for="seconds">表示秒数</label>
+              <input id="seconds" type="number" min="1" value="5">
+            </div>
+
+            <div class="field">
+              <label for="status">公開/非公開</label>
+              <select id="status">
+                <option value="public" selected>公開</option>
+                <option value="private">非公開</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="order">表示順</label>
+              <input id="order" type="number" min="1" value="1">
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top: 20px;">
+            <button type="submit" class="btn btn-primary">更新する</button>
+            <a href="./dashboard.html" class="btn btn-secondary">一覧へ戻る</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
