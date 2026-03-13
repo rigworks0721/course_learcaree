@@ -144,8 +144,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <aside class="sidebar">
       <h1 class="brand">Banner Admin</h1>
       <nav class="nav">
+        <span class="nav-label">バナー管理</span>
         <a href="./dashboard.php" class="active">一覧</a>
         <a href="./create.php">新規作成</a>
+        <span class="nav-label">レビュー管理</span>
+        <a href="./review_dashboard.php">一覧</a>
+        <a href="./review_create.php">新規作成</a>
         <a href="./logout.php">ログアウト</a>
       </nav>
     </aside>
