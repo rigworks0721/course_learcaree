@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>漢方 - 基本02</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>body{min-height:max(884px,100dvh);}</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+  <div class="relative max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-3xl">spa</span>
+      <span class="font-bold text-lg tracking-tight">漢方 - 基本02</span>
+    </div>
+    <button id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-primary/10 transition-colors">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full z-40 bg-background-light dark:bg-background-dark border-t border-primary/10">
+    <div class="flex flex-col p-4 gap-4">
+      <a href="index.html" class="hover:text-primary transition-colors">ホーム</a>
+      <a href="curriculum01.html" class="hover:text-primary transition-colors">基本01</a>
+      <a href="curriculum03.html" class="hover:text-primary transition-colors">基本03</a>
+    </div>
+  </div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 py-16">
+  <h1 class="text-3xl font-bold mb-6">漢方 基本02</h1>
+  <p>体質に応じた処方や代表的な生薬について解説します。</p>
+</main>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('hidden');
+    });
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+</script>
+</body>
+</html>
