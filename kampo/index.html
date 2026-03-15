@@ -305,38 +305,68 @@
       const marquee = document.querySelector('[data-reviews-marquee]');
       const track = document.querySelector('[data-reviews-track]');
       if (!track || !marquee) return;
-      try {
-        const res = await fetch('../review_api.php?path=' + encodeURIComponent('/kampo'));
-        const json = await res.json();
-        const rows = Array.isArray(json.data) ? json.data : [];
-        if (!rows.length) {
-          track.innerHTML = '<div class="review-empty">レビューは準備中です。</div>';
-          return;
+
+      const SAMPLE_ROWS = [
+        {
+          age_group: '30代',
+          gender: 'male',
+          rating: 3,
+          comment: '漢方を学べて良かった。家族や友人におすすめするために勉強を開始しましたが、基準があるので安心です。'
+        },
+        {
+          age_group: '40代',
+          gender: 'female',
+          rating: 5,
+          comment: 'テキストが読みやすく、通勤時間の学習だけでも理解が進みました。生活に取り入れやすい内容です。'
+        },
+        {
+          age_group: '20代',
+          gender: 'female',
+          rating: 4,
+          comment: 'セルフケアの視点が増えて、体調管理に役立っています。家族へのアドバイスにも自信が持てます。'
         }
+      ];
 
-        const toCard = (r) => {
-          const isFemale = r.gender === 'female';
-          const genderLabel = isFemale ? '女性' : '男性';
-          const escapedComment = String(r.comment || '').replace(/[&<>"]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-          const starIcon = '<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.22 6.12 20.31l1.12-6.55L2.48 9.12l6.58-.96L12 2.2z"/></svg>';
-          const stars = Array.from({ length: Math.max(1, Math.min(5, Number(r.rating) || 1)) }, () => starIcon).join('');
-          const avatarSrc = isFemale ? '../images/round_female.png' : '../images/round_male.png';
-          return `
-            <article class="review-card">
-              <div class="review-head">
-                <div class="review-avatar"><img src="${avatarSrc}" alt="${genderLabel}アイコン" loading="lazy"></div>
-                <div class="review-content">
-                  <div class="review-meta">${r.age_group}・${genderLabel}</div>
-                  <div class="review-rate"><span class="stars">${stars}</span><span class="score">${r.rating}</span></div>
-                </div>
+
+      const createAvatarDataUri = (isFemale) => {
+        const body = isFemale
+          ? '<circle cx="50" cy="34" r="14" fill="#fff"/><path d="M24 86c4-18 18-28 26-28s22 10 26 28" fill="#fff"/>'
+          : '<circle cx="50" cy="34" r="14" fill="#fff"/><path d="M20 86c4-20 20-30 30-30s26 10 30 30" fill="#fff"/>';
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#0f9db6"/>${body}</svg>`;
+        return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+      };
+
+      const toCard = (r) => {
+        const isFemale = r.gender === 'female';
+        const genderLabel = isFemale ? '女性' : '男性';
+        const escapedComment = String(r.comment || '').replace(/[&<>"]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+        const score = Math.max(1, Math.min(5, Number(r.rating) || 1));
+        const starPath = 'M12 2.2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.22 6.12 20.31l1.12-6.55L2.48 9.12l6.58-.96L12 2.2z';
+        const stars = Array.from({ length: 5 }, (_, i) => {
+          const klass = i < score ? 'star is-filled' : 'star is-empty';
+          return `<svg class="${klass}" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="${starPath}"/></svg>`;
+        }).join('');
+        const avatarSrc = createAvatarDataUri(isFemale);
+        return `
+          <article class="review-card">
+            <div class="review-head">
+              <div class="review-avatar"><img src="${avatarSrc}" alt="${genderLabel}アイコン" loading="lazy"></div>
+              <div class="review-content">
+                <div class="review-meta">${r.age_group}・${genderLabel}</div>
+                <div class="review-rate"><span class="review-rate-label">評価：<span class="score">${score}</span></span><span class="stars">${stars}</span></div>
               </div>
-              <p class="review-text">${escapedComment}</p>
-            </article>`;
-        };
+            </div>
+            <p class="review-text">${escapedComment}</p>
+          </article>`;
+      };
 
+      const renderRows = (rows, isSample = false) => {
         const html = rows.map(toCard).join('');
         track.innerHTML = html + html;
+        marquee.dataset.reviewSource = isSample ? 'sample' : 'api';
+      };
 
+      const setupMarquee = () => {
         let singleSetWidth = 0;
         let offset = 0;
         const autoSpeed = 0.38;
@@ -401,21 +431,55 @@
         rafId = requestAnimationFrame(loop);
 
         marquee.addEventListener('pointerdown', (event) => {
-          marquee.setPointerCapture(event.pointerId);
+          if (typeof marquee.setPointerCapture === 'function') {
+            marquee.setPointerCapture(event.pointerId);
+          }
           startDrag(event);
         });
-        marquee.addEventListener('pointermove', moveDrag);
+        marquee.addEventListener('pointermove', (event) => {
+          if (isDragging) event.preventDefault();
+          moveDrag(event);
+        });
         marquee.addEventListener('pointerup', endDrag);
+        marquee.addEventListener('pointerleave', endDrag);
         marquee.addEventListener('pointercancel', endDrag);
+
         marquee.addEventListener('touchstart', startDrag, { passive: true });
-        marquee.addEventListener('touchmove', moveDrag, { passive: true });
+        marquee.addEventListener('touchmove', (event) => {
+          if (isDragging) event.preventDefault();
+          moveDrag(event);
+        }, { passive: false });
         marquee.addEventListener('touchend', endDrag);
+        marquee.addEventListener('touchcancel', endDrag);
         window.addEventListener('resize', recalc);
+      };
+
+      // 開発時は /kampo/?sampleReviews=1 でサンプルデータを強制表示
+      const shouldUseSample = new URLSearchParams(window.location.search).get('sampleReviews') === '1';
+
+      try {
+        let rows = [];
+        let isSample = shouldUseSample;
+        if (!shouldUseSample) {
+          const res = await fetch('../review_api.php?path=' + encodeURIComponent('/kampo'));
+          if (res.ok) {
+            const json = await res.json();
+            rows = Array.isArray(json.data) ? json.data : [];
+          }
+        }
+        if (!rows.length) {
+          rows = SAMPLE_ROWS;
+          isSample = true;
+        }
+        renderRows(rows, isSample);
+        setupMarquee();
       } catch (e) {
-        track.innerHTML = '<div class="review-empty">レビューの読み込みに失敗しました。</div>';
+        renderRows(SAMPLE_ROWS, true);
+        setupMarquee();
       }
     })();
     </script>
+
 
     <script src="../assets/js/common-footer.js" defer></script>
 </body>
