@@ -4,11 +4,17 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>漢方アドバイザー資格取得講座 | 巡る知恵は、私を整え、誰かを癒す。</title>
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
     <link rel="stylesheet" href="style.css">
+
     <script>
-        tailwind.config = {
+        window.tailwind.config = {
             theme: {
                 extend: {
                     colors: {
@@ -61,6 +67,60 @@
         </div>
     </header>
 
+
+   <section class="py-20 px-6 bg-kampo-beige/30 relative overflow-hidden">
+    <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+        <svg width="300" height="300" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-kampo-gold"/>
+        </svg>
+    </div>
+
+    <div class="max-w-md mx-auto relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-xl md:text-2xl text-kampo-green leading-relaxed tracking-widest-jp">
+                「なんとなく不調」が続く、<br>
+                そんな毎日に心当たりはありませんか？
+            </h2>
+            <div class="w-8 h-px bg-kampo-gold mx-auto mt-6"></div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-sm shadow-sm border-l-4 border-kampo-gold/40 flex gap-4">
+                <span class="material-symbols-outlined text-kampo-gold text-xl mt-1">check_circle</span>
+                <p class="text-[14px] leading-relaxed text-gray-700">
+                    寝ても疲れが取れず、朝から体が重だるい。
+                </p>
+            </div>
+            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-sm shadow-sm border-l-4 border-kampo-gold/40 flex gap-4">
+                <span class="material-symbols-outlined text-kampo-gold text-xl mt-1">check_circle</span>
+                <p class="text-[14px] leading-relaxed text-gray-700">
+                    病院へ行くほどではないけれど、冷えやのぼせが気になる。
+                </p>
+            </div>
+            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-sm shadow-sm border-l-4 border-kampo-gold/40 flex gap-4">
+                <span class="material-symbols-outlined text-kampo-gold text-xl mt-1">check_circle</span>
+                <p class="text-[14px] leading-relaxed text-gray-700">
+                    季節の変わり目にいつも体調を崩してしまう。
+                </p>
+            </div>
+            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-sm shadow-sm border-l-4 border-kampo-gold/40 flex gap-4">
+                <span class="material-symbols-outlined text-kampo-gold text-xl mt-1">check_circle</span>
+                <p class="text-[14px] leading-relaxed text-gray-700">
+                    自分や家族のために、薬に頼りすぎないセルフケアを知りたい。
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-[13px] text-kampo-green font-serif tracking-widest leading-loose">
+                そのサイン、漢方のモノサシなら<br>
+                解決の糸口が見つかるかもしれません。
+            </p>
+        </div>
+    </div>
+</section>
+
+
     <section class="py-16 px-6 bg-white">
         <div class="max-w-md mx-auto">
             <div class="text-center mb-10">
@@ -98,7 +158,60 @@
             </div>
         </div>
     </section>
+<section class="py-20 px-6 bg-white overflow-hidden">
+    <div class="max-w-md mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-kampo-gold font-serif block mb-1 tracking-[0.3em] text-xs uppercase">— Accreditation —</span>
+            <h2 class="text-xl md:text-2xl font-serif font-bold text-kampo-green leading-snug tracking-widest-jp">
+                信頼を形にする、<br/>公式認定証の発行
+            </h2>
+            <div class="w-10 h-px bg-kampo-gold mx-auto mt-4"></div>
+        </div>
 
+        <div class="mb-10 rounded-sm overflow-hidden shadow-lg border border-kampo-beige">
+            <img src="/images/jsadanintei.png" alt="一般社団法人日本技能開発協会 公式認定制度" class="w-full h-auto">
+        </div>
+
+        <div class="space-y-8">
+            <div class="text-center">
+                <p class="text-[14px] leading-relaxed text-gray-700 mb-6">
+                    本講座は、<span class="font-bold text-kampo-green">一般社団法人 日本技能開発協会（JSDA）</span>の公式認定を受けたカリキュラムです。試験合格後には、その道のプロフェッショナルであることを証明する公式認定証が授与されます。
+                </p>
+            </div>
+
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-kampo-gold/20 to-kampo-green/20 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <div class="relative bg-white p-2 rounded shadow-2xl border border-kampo-gold/10">
+                    <img src="/images/diproma02.jpg" alt="漢方アドバイザー公式認定証イメージ" class="w-full h-auto rounded-sm">
+                </div>
+                <p class="text-center text-[11px] text-gray-500 mt-4 tracking-widest">
+                    ※授与される認定証のイメージ（高品質なディプロマをお届けします）
+                </p>
+            </div>
+
+            <div class="bg-kampo-beige/30 p-6 rounded-sm border border-kampo-gold/20">
+                <h4 class="text-sm font-bold text-kampo-green mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">verified</span>
+                    資格取得のメリット
+                </h4>
+                <ul class="text-[12px] space-y-2 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <span class="text-kampo-gold">・</span>
+                        履歴書やプロフィールに「JSDA認定 漢方アドバイザー」と記載可能
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-kampo-gold">・</span>
+                        活動時の信頼性が飛躍的に向上
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-kampo-gold">・</span>
+                        自宅サロンや副業、専門家としての活動の証に
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
     <section class="py-16 bg-kampo-beige px-6">
         <div class="max-w-md mx-auto">
             <div class="text-center mb-10">
