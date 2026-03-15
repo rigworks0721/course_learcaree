@@ -159,8 +159,8 @@ html {
 }
 
 .review-rate .star {
-    width: calc(var(--card-width) * 0.041);
-    height: calc(var(--card-width) * 0.041);
+    width: calc(var(--card-width) * 0.0615);
+    height: calc(var(--card-width) * 0.0615);
     line-height: 1;
     flex-shrink: 0;
 }
