@@ -440,15 +440,6 @@
         }
       ];
 
-
-      const createAvatarDataUri = (isFemale) => {
-        const body = isFemale
-          ? '<circle cx="50" cy="34" r="14" fill="#fff"/><path d="M24 86c4-18 18-28 26-28s22 10 26 28" fill="#fff"/>'
-          : '<circle cx="50" cy="34" r="14" fill="#fff"/><path d="M20 86c4-20 20-30 30-30s26 10 30 30" fill="#fff"/>';
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#0f9db6"/>${body}</svg>`;
-        return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-      };
-
       const toCard = (r) => {
         const isFemale = r.gender === 'female';
         const genderLabel = isFemale ? '女性' : '男性';
@@ -459,7 +450,7 @@
           const klass = i < score ? 'star is-filled' : 'star is-empty';
           return `<svg class="${klass}" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="${starPath}"/></svg>`;
         }).join('');
-        const avatarSrc = createAvatarDataUri(isFemale);
+        const avatarSrc = isFemale ? '/images/round.female.jpg' : '/images/round_male.jpg';
         return `
           <article class="review-card">
             <div class="review-head">
